@@ -30,7 +30,7 @@ func getAdd(c *gin.Context) {
 		DB:   0, // use default DB
 	})
 	id := c.Param("id")
-	cpc, err := redisClient.HGet(ctx, "positinos", id).Result()
+	cpc, err := redisClient.HGet(ctx, "positions", id).Result()
 	if err != nil {
 		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "position not found"})
 		return
